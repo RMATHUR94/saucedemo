@@ -37,12 +37,17 @@ public class LandingPage extends AbstractComponent {
 	//driver.findElement(By.id("login-button")).click();
 	@FindBy(id ="login-button")
 	WebElement submit;
+	
+	@FindBy(css ="h3[data-test='error']")
+	WebElement errorMsg;
+	
 
 	public void goTo()
 	{
 		driver.get("https://www.saucedemo.com/");
 		driver.manage().window().maximize();
 	}
+	
 	
 	public ProductCatalogue loginApplication(String email , String password)
 	{
@@ -52,5 +57,13 @@ public class LandingPage extends AbstractComponent {
 		ProductCatalogue Productcatalogue = new ProductCatalogue(driver);
 		return Productcatalogue;
 
+	}
+	
+	public String getErrorMsg()
+	{
+		waitForWebElementToAppearBydriver(errorMsg);
+		String errormsg = errorMsg.getText();
+		return errormsg;
+		
 	}
 }

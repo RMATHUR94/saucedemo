@@ -1,6 +1,8 @@
 package Practice.saucedemo.AbstractComponents;
 
 import java.time.Duration;
+import java.util.List;
+import java.util.function.Predicate;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -25,6 +27,9 @@ public class AbstractComponent {
 	@FindBy(xpath = "//a[@class='shopping_cart_link']")
 	WebElement cartHeader;
 	
+	@FindBy(css = "div[class='inventory_item_name']")
+	List<WebElement> cartlists;
+	
 	By curtheader = By.xpath("//div[@class='header_label']");
 
 	
@@ -41,14 +46,13 @@ public class AbstractComponent {
 
 	}
 	
-//	public void waitForElementToAppearBydriver(WebElement ele) {
-//
-//		// wating for the element to be located
-//
-//		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-//		wait.until(ExpectedConditions.visibilityOf(ele));
-//
-//	}
+	public void waitForWebElementToAppearBydriver(WebElement findBy) {
+
+		// wating for the element to be located
+
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		wait.until(ExpectedConditions.visibilityOf(findBy));
+	}
 	
 
 	public void elementToBeclickable(By findby)
@@ -69,5 +73,16 @@ public class AbstractComponent {
 		cartHeader.click();
 		cartPage cartpage = new cartPage(driver);
 		return cartpage;
+	}
+	
+	public Boolean verifyProductDisplay(final String productName)
+	{
+		Boolean match = cartlists.stream().anyMatch(new Predicate<WebElement>() {
+			@Override
+			public boolean test(WebElement product) {
+				return product.getText().equalsIgnoreCase(productName);
+			}
+		});
+		return match;
 	}
 }
