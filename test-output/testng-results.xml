@@ -1,54 +1,80 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="2" passed="1" failed="0" skipped="1">
+<testng-results ignored="0" total="4" passed="3" failed="0" skipped="1">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-07-27T18:30:42 IST" name="Default suite" finished-at="2024-07-27T18:30:50 IST" duration-ms="7940">
+  <suite started-at="2024-08-04T15:55:02 IST" name="Suite" finished-at="2024-08-04T15:55:11 IST" duration-ms="9179">
     <groups>
       <group name="purchase">
-        <method signature="StandaloneTest.StandaloneTest(java.lang.String,java.lang.String)[pri:0, instance:Practice.saucedemo.tests.StandaloneTest@45099dd3]" name="StandaloneTest" class="Practice.saucedemo.tests.StandaloneTest"/>
+        <method signature="StandaloneTest.StandaloneTest(java.util.HashMap)[pri:0, instance:Practice.saucedemo.tests.StandaloneTest@5524cca1]" name="StandaloneTest" class="Practice.saucedemo.tests.StandaloneTest"/>
       </group> <!-- purchase -->
+      <group name="Errorhandling">
+        <method signature="ErrorValidation.Productvalidation()[pri:0, instance:Practice.saucedemo.tests.ErrorValidation@4d5650ae]" name="Productvalidation" class="Practice.saucedemo.tests.ErrorValidation"/>
+      </group> <!-- Errorhandling -->
     </groups>
-    <test started-at="2024-07-27T18:30:42 IST" name="Default test" finished-at="2024-07-27T18:30:50 IST" duration-ms="7940">
-      <class name="Practice.saucedemo.tests.StandaloneTest">
-        <test-method is-config="true" signature="launchApplication()[pri:0, instance:Practice.saucedemo.tests.StandaloneTest@45099dd3]" started-at="2024-07-27T18:30:42 IST" name="launchApplication" finished-at="2024-07-27T18:30:46 IST" duration-ms="3825" status="PASS">
+    <test started-at="2024-08-04T15:55:02 IST" name="Error validation Test" finished-at="2024-08-04T15:55:10 IST" duration-ms="8613">
+      <class name="Practice.saucedemo.tests.ErrorValidation">
+        <test-method is-config="true" signature="launchApplication()[pri:0, instance:Practice.saucedemo.tests.ErrorValidation@4d5650ae]" started-at="2024-08-04T15:55:02 IST" name="launchApplication" finished-at="2024-08-04T15:55:06 IST" duration-ms="4108" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- launchApplication -->
-        <test-method signature="StandaloneTest(java.lang.String,java.lang.String)[pri:0, instance:Practice.saucedemo.tests.StandaloneTest@45099dd3]" started-at="2024-07-27T18:30:46 IST" name="StandaloneTest" data-provider="getData" finished-at="2024-07-27T18:30:48 IST" duration-ms="1774" status="PASS">
+        <test-method signature="Productvalidation()[pri:0, instance:Practice.saucedemo.tests.ErrorValidation@4d5650ae]" started-at="2024-08-04T15:55:06 IST" name="Productvalidation" finished-at="2024-08-04T15:55:07 IST" duration-ms="1402" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Productvalidation -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:Practice.saucedemo.tests.ErrorValidation@4d5650ae]" started-at="2024-08-04T15:55:07 IST" name="tearDown" finished-at="2024-08-04T15:55:07 IST" duration-ms="111" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="launchApplication()[pri:0, instance:Practice.saucedemo.tests.ErrorValidation@4d5650ae]" started-at="2024-08-04T15:55:07 IST" name="launchApplication" finished-at="2024-08-04T15:55:10 IST" duration-ms="2305" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchApplication -->
+        <test-method signature="StandaloneTest()[pri:0, instance:Practice.saucedemo.tests.ErrorValidation@4d5650ae]" started-at="2024-08-04T15:55:10 IST" name="StandaloneTest" finished-at="2024-08-04T15:55:10 IST" duration-ms="494" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- StandaloneTest -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:Practice.saucedemo.tests.ErrorValidation@4d5650ae]" started-at="2024-08-04T15:55:10 IST" name="tearDown" finished-at="2024-08-04T15:55:10 IST" duration-ms="122" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- Practice.saucedemo.tests.ErrorValidation -->
+    </test> <!-- Error validation Test -->
+    <test started-at="2024-08-04T15:55:02 IST" name="Submit order Smoke test" finished-at="2024-08-04T15:55:11 IST" duration-ms="9179">
+      <class name="Practice.saucedemo.tests.StandaloneTest">
+        <test-method is-config="true" signature="launchApplication()[pri:0, instance:Practice.saucedemo.tests.StandaloneTest@5524cca1]" started-at="2024-08-04T15:55:02 IST" name="launchApplication" finished-at="2024-08-04T15:55:06 IST" duration-ms="4220" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchApplication -->
+        <test-method signature="StandaloneTest(java.util.HashMap)[pri:0, instance:Practice.saucedemo.tests.StandaloneTest@5524cca1]" started-at="2024-08-04T15:55:06 IST" name="StandaloneTest" data-provider="getData" finished-at="2024-08-04T15:55:08 IST" duration-ms="2365" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[standard_user]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[secret_sauce]]>
+                <![CDATA[{password=secret_sauce, email=standard_user}]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- StandaloneTest -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:Practice.saucedemo.tests.StandaloneTest@45099dd3]" started-at="2024-07-27T18:30:48 IST" name="tearDown" finished-at="2024-07-27T18:30:48 IST" duration-ms="108" status="FAIL">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:Practice.saucedemo.tests.StandaloneTest@5524cca1]" started-at="2024-08-04T15:55:08 IST" name="tearDown" finished-at="2024-08-04T15:55:09 IST" duration-ms="158" status="FAIL">
           <exception class="org.openqa.selenium.NoSuchSessionException">
             <message>
               <![CDATA[invalid session id
 Build info: version: '4.20.0', revision: '866c76ca80'
 System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.2'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [d9dd9f8f580a5348407ffaaf8087e3ad, close {}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 127.0.6533.72, chrome: {chromedriverVersion: 127.0.6533.72 (9755e24ca85a..., userDataDir: C:\Users\user\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:50634}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:50634/devtoo..., se:cdpVersion: 127.0.6533.72, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: d9dd9f8f580a5348407ffaaf8087e3ad]]>
+Command: [27213103eca2b10126c357a49f008c0b, close {}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 127.0.6533.89, chrome: {chromedriverVersion: 127.0.6533.88 (a2d0cb026721..., userDataDir: C:\Users\user\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:50765}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:50765/devtoo..., se:cdpVersion: 127.0.6533.89, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 27213103eca2b10126c357a49f008c0b]]>
             </message>
             <full-stacktrace>
               <![CDATA[org.openqa.selenium.NoSuchSessionException: invalid session id
 Build info: version: '4.20.0', revision: '866c76ca80'
 System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.2'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [d9dd9f8f580a5348407ffaaf8087e3ad, close {}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 127.0.6533.72, chrome: {chromedriverVersion: 127.0.6533.72 (9755e24ca85a..., userDataDir: C:\Users\user\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:50634}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:50634/devtoo..., se:cdpVersion: 127.0.6533.72, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: d9dd9f8f580a5348407ffaaf8087e3ad
+Command: [27213103eca2b10126c357a49f008c0b, close {}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 127.0.6533.89, chrome: {chromedriverVersion: 127.0.6533.88 (a2d0cb026721..., userDataDir: C:\Users\user\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:50765}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:50765/devtoo..., se:cdpVersion: 127.0.6533.89, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 27213103eca2b10126c357a49f008c0b
 at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
 at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
@@ -86,38 +112,27 @@ at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 at org.testng.TestRunner.privateRun(TestRunner.java:829)
 at org.testng.TestRunner.run(TestRunner.java:602)
 at org.testng.SuiteRunner.runTest(SuiteRunner.java:437)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:431)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:391)
-at org.testng.SuiteRunner.run(SuiteRunner.java:330)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1256)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1176)
-at org.testng.TestNG.runSuites(TestNG.java:1099)
-at org.testng.TestNG.run(TestNG.java:1067)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:475)
+at org.testng.internal.thread.ThreadUtil.lambda$execute$0(ThreadUtil.java:58)
+at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+at java.base/java.lang.Thread.run(Thread.java:833)
 ]]>
             </full-stacktrace>
           </exception> <!-- org.openqa.selenium.NoSuchSessionException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="launchApplication()[pri:0, instance:Practice.saucedemo.tests.StandaloneTest@45099dd3]" started-at="2024-07-27T18:30:48 IST" name="launchApplication" finished-at="2024-07-27T18:30:50 IST" duration-ms="1982" status="PASS">
+        <test-method is-config="true" signature="launchApplication()[pri:0, instance:Practice.saucedemo.tests.StandaloneTest@5524cca1]" started-at="2024-08-04T15:55:09 IST" name="launchApplication" finished-at="2024-08-04T15:55:11 IST" duration-ms="2284" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- launchApplication -->
-        <test-method signature="StandaloneTest(java.lang.String,java.lang.String)[pri:0, instance:Practice.saucedemo.tests.StandaloneTest@45099dd3]" started-at="2024-07-27T18:30:50 IST" name="StandaloneTest" data-provider="getData" finished-at="2024-07-27T18:30:50 IST" duration-ms="0" status="SKIP">
+        <test-method signature="StandaloneTest(java.util.HashMap)[pri:0, instance:Practice.saucedemo.tests.StandaloneTest@5524cca1]" started-at="2024-08-04T15:55:11 IST" name="StandaloneTest" data-provider="getData" finished-at="2024-08-04T15:55:11 IST" duration-ms="1" status="SKIP">
           <params>
             <param index="0">
               <value>
-                <![CDATA[visual_user]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[secret_sauce]]>
+                <![CDATA[{password=secret_sauce, email=visual_user}]]>
               </value>
             </param>
           </params>
@@ -127,18 +142,18 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 Build info: version: '4.20.0', revision: '866c76ca80'
 System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.2'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [d9dd9f8f580a5348407ffaaf8087e3ad, close {}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 127.0.6533.72, chrome: {chromedriverVersion: 127.0.6533.72 (9755e24ca85a..., userDataDir: C:\Users\user\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:50634}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:50634/devtoo..., se:cdpVersion: 127.0.6533.72, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: d9dd9f8f580a5348407ffaaf8087e3ad]]>
+Command: [27213103eca2b10126c357a49f008c0b, close {}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 127.0.6533.89, chrome: {chromedriverVersion: 127.0.6533.88 (a2d0cb026721..., userDataDir: C:\Users\user\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:50765}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:50765/devtoo..., se:cdpVersion: 127.0.6533.89, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 27213103eca2b10126c357a49f008c0b]]>
             </message>
             <full-stacktrace>
               <![CDATA[org.openqa.selenium.NoSuchSessionException: invalid session id
 Build info: version: '4.20.0', revision: '866c76ca80'
 System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.2'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [d9dd9f8f580a5348407ffaaf8087e3ad, close {}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 127.0.6533.72, chrome: {chromedriverVersion: 127.0.6533.72 (9755e24ca85a..., userDataDir: C:\Users\user\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:50634}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:50634/devtoo..., se:cdpVersion: 127.0.6533.72, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: d9dd9f8f580a5348407ffaaf8087e3ad
+Command: [27213103eca2b10126c357a49f008c0b, close {}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 127.0.6533.89, chrome: {chromedriverVersion: 127.0.6533.88 (a2d0cb026721..., userDataDir: C:\Users\user\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:50765}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:50765/devtoo..., se:cdpVersion: 127.0.6533.89, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 27213103eca2b10126c357a49f008c0b
 at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
 at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
@@ -176,29 +191,23 @@ at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 at org.testng.TestRunner.privateRun(TestRunner.java:829)
 at org.testng.TestRunner.run(TestRunner.java:602)
 at org.testng.SuiteRunner.runTest(SuiteRunner.java:437)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:431)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:391)
-at org.testng.SuiteRunner.run(SuiteRunner.java:330)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1256)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1176)
-at org.testng.TestNG.runSuites(TestNG.java:1099)
-at org.testng.TestNG.run(TestNG.java:1067)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:475)
+at org.testng.internal.thread.ThreadUtil.lambda$execute$0(ThreadUtil.java:58)
+at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+at java.base/java.lang.Thread.run(Thread.java:833)
 ]]>
             </full-stacktrace>
           </exception> <!-- org.openqa.selenium.NoSuchSessionException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- StandaloneTest -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:Practice.saucedemo.tests.StandaloneTest@45099dd3]" started-at="2024-07-27T18:30:50 IST" name="tearDown" finished-at="2024-07-27T18:30:50 IST" duration-ms="131" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:Practice.saucedemo.tests.StandaloneTest@5524cca1]" started-at="2024-08-04T15:55:11 IST" name="tearDown" finished-at="2024-08-04T15:55:11 IST" duration-ms="83" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
       </class> <!-- Practice.saucedemo.tests.StandaloneTest -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+    </test> <!-- Submit order Smoke test -->
+  </suite> <!-- Suite -->
 </testng-results>
