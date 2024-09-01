@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite parallel="tests" name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
-  <test thread-count="5" parallel="tests" name="Submit order Smoke test(failed)">
+  <listeners>
+    <listener class-name="Practice.saucedemo.testComponents.Listeners"/>
+  </listeners>
+  <test thread-count="5" parallel="tests" name="Error validation Test(failed)">
     <classes>
-      <class name="Practice.saucedemo.tests.StandaloneTest">
+      <class name="Practice.saucedemo.tests.ErrorValidation">
         <methods>
-          <include name="tearDown"/>
           <include name="StandaloneTest"/>
+          <include name="tearDown"/>
           <include name="launchApplication"/>
         </methods>
-      </class> <!-- Practice.saucedemo.tests.StandaloneTest -->
+      </class> <!-- Practice.saucedemo.tests.ErrorValidation -->
     </classes>
-  </test> <!-- Submit order Smoke test(failed) -->
+  </test> <!-- Error validation Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

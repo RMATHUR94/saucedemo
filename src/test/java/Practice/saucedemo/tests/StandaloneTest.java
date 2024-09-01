@@ -1,7 +1,9 @@
 package Practice.saucedemo.tests;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
@@ -45,21 +47,30 @@ public class StandaloneTest extends BaseTest{
 		
 	}
 	
-	@DataProvider
-	public Object[][] getData()
+	// Using Map to fetch the credentials 
+//	@DataProvider 
+//	public Object[][] getData()
+//	{
+//		HashMap<String,String> map = new HashMap<String,String>();
+//		map.put("email","standard_user");
+//		map.put("password","secret_sauce");
+//	    
+//		HashMap<String,String> map1 = new HashMap<String,String>();
+//		map1.put("email","visual_user");
+//		map1.put("password", "secret_sauce");
+//		return new Object [] []  {{map},{map1}};
+//	}
+	
+	@DataProvider 
+	public Object[][] getData() throws IOException
 	{
-		HashMap<String,String> map = new HashMap<String,String>();
-		map.put("email","standard_user");
-		map.put("password","secret_sauce");
-	    
-		HashMap<String,String> map1 = new HashMap<String,String>();
-		map1.put("email","visual_user");
-		map1.put("password", "secret_sauce");
-		return new Object [] []  {{map},{map1}};
+		List<HashMap<String,String>> data = getJsonDataToMap();
+		return new Object [] []  {{data.get(0)},{data.get(1)}};
 	}
 	
-
-//	@DataProvider
+	
+// Using array onject to fetch the credentials	
+//	@DataProvider  
 //	public Object[][] getData()
 //	{
 //		return new Object [] []  {{"standard_user","secret_sauce"},{"visual_user","secret_sauce"}};
