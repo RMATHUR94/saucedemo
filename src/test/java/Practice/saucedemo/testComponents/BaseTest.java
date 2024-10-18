@@ -34,7 +34,11 @@ public class BaseTest {
 		//FileInputStream fis = new FileInputStream("C:\\Users\\user\\eclipse-workspace\\saucedemo\\src\\main\\java\\Practice\\saucedemo\\resources\\GlobalData.properties");
 		FileInputStream fis = new FileInputStream(System.getProperty("user.dir")+"//src//main//java//Practice//saucedemo//resources//GlobalData.properties");
 		prop.load(fis);
-		String browserName = prop.getProperty("browser");  
+	
+		// For invoking through maven cmd terminal
+		String browserName = System.getProperty("browser") != null ? System.getProperty("browser") : prop.getProperty("browser");
+	
+		//	String browserName = prop.getProperty("browser");  
 		
 		if (browserName.equalsIgnoreCase("chrome")) {
 			WebDriverManager.chromedriver().setup();
@@ -57,7 +61,7 @@ public class BaseTest {
 	
 	public List<HashMap<String, String>> getJsonDataToMap() throws IOException
 	{
-		//Reading json to String
+		//Reading Json to String
 		String jsonContent = FileUtils.readFileToString(new File(System.getProperties()+"//src//test//java//Practice//saucedemo//data//PurchaseOrder.json"));
 	
 		

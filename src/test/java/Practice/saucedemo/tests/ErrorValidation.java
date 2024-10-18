@@ -15,7 +15,7 @@ import Pracetice.saucedemo.pageobjects.cartPage;
 import Practice.saucedemo.testComponents.BaseTest;
 import Practice.saucedemo.testComponents.retry;
 
-@Test
+@Test(retryAnalyzer=retry.class)
 public class ErrorValidation extends BaseTest {
 
 	//Under this test we added test for retry test for flasky test

@@ -8,8 +8,8 @@
     <classes>
       <class name="Practice.saucedemo.tests.ErrorValidation">
         <methods>
-          <include name="StandaloneTest"/>
           <include name="tearDown"/>
+          <include name="StandaloneTest"/>
           <include name="launchApplication"/>
         </methods>
       </class> <!-- Practice.saucedemo.tests.ErrorValidation -->
