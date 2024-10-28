@@ -26,7 +26,7 @@ import Pracetice.saucedemo.pageobjects.LandingPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BaseTest {
-
+    // adding comment for checking that webhook-jenkins trigger working as expected or not
 	public WebDriver driver;
 	public LandingPage landingpage;
  
