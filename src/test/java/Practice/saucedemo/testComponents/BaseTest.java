@@ -1,5 +1,6 @@
 package Practice.saucedemo.testComponents;
 
+import java.awt.Dimension;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -13,6 +14,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -40,17 +42,25 @@ public class BaseTest {
 	
 		//	String browserName = prop.getProperty("browser");  
 		
-		if (browserName.equalsIgnoreCase("chrome")) {
+		if (browserName.contains("chrome")) {
+			ChromeOptions options = new ChromeOptions();
 			WebDriverManager.chromedriver().setup();
-			driver = new ChromeDriver();
+			if(browserName.contains("headless"))
+			{
+				options.addArguments("headless");
+			}
+			driver = new ChromeDriver(options);
+			//driver.manage().window().setSize(new Dimension(1400, 900));
 			driver.get("https://www.saucedemo.com/");
 
-		} else if (browserName.equalsIgnoreCase("firefox")) {
+		} 
+		else if (browserName.equalsIgnoreCase("firefox")) {
 			WebDriverManager.firefoxdriver().setup();
 			driver = new FirefoxDriver();
 			driver.get("https://www.saucedemo.com/");
 			// driver.manage().window().maximize();
-		} else if (browserName.equalsIgnoreCase("edge")) {
+		} 
+		else if (browserName.equalsIgnoreCase("edge")) {
 			// edge handeling code
 		}
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
