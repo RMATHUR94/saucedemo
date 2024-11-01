@@ -27,7 +27,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BaseTest {
     // adding comment for checking that webhook-jenkins trigger working as expected or not
-	// 2nd time adding cmt for test
+	// Jenkins - NgRok Server execution steps
 	public WebDriver driver;
 	public LandingPage landingpage;
  
