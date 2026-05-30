@@ -13,67 +13,53 @@ import com.aventstack.extentreports.Status;
 
 import Practice.saucedemo.resources.ExtentReporterNG;
 
-//Taking Screenshot on Test Fail( main method written on the BaseTest 
-public class Listeners extends BaseTest implements ITestListener{
+/**
+ * Listeners Class - Implements TestNG listener for handling test events
+ * Captures screenshots on test failure and generates HTML reports using ExtentReports
+ */
+public class Listeners extends BaseTest implements ITestListener {
 
-	//getting object from ExtentReporterNG class
-	
-	ExtentTest test;
-	ExtentReports extent = ExtentReporterNG.getReportObject();
-	//Creating multi-Threading Threadlocal object due to parallel Run that cretaing error in test object of 
-	ThreadLocal<ExtentTest> extentTest = new ThreadLocal();
+	private ExtentReports extent = ExtentReporterNG.getReportObject();
+	private ThreadLocal<ExtentTest> extentTest = new ThreadLocal<>();
+
 	@Override
 	public void onTestStart(ITestResult result) {
-		
-		test = extent.createTest(result.getMethod().getMethodName());
-		
-		extentTest.set(test);// unique thread id(ErrorValidationTest)->
+		ExtentTest test = extent.createTest(result.getMethod().getMethodName());
+		extentTest.set(test);
 	}
 
 	@Override
 	public void onTestSuccess(ITestResult result) {
-		
-		//test.log(Status.PASS,"Test Passed");
-		
-		extentTest.get().log(Status.PASS,"Test Passed");
-		
+		extentTest.get().log(Status.PASS, "Test Passed Successfully");
 	}
 
 	@Override
 	public void onTestFailure(ITestResult result) {
-		
-	   //test.fail(result.getThrowable());
-		
 		extentTest.get().fail(result.getThrowable());
-	  
-		//Adding life to the driver
 		
-	  try {
-		driver = (WebDriver) result.getTestClass().getRealClass().getField("driver").get(result.getInstance());
-	} catch (Exception e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	} 
-	  
-	   String filePath = null;
-	 
-	   //On Test Failure Screenshot
-	  try {
-		filePath = getScreenShot(result.getMethod().getMethodName(),driver);
-	} catch (IOException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
-	  extentTest.get().addScreenCaptureFromPath(filePath, result.getMethod().getMethodName());
-	  
-	  //test.addScreenCaptureFromPath(filePath, result.getMethod().getMethodName());
-	
+		// Capture screenshot on failure
+		try {
+			driver = (WebDriver) result.getTestClass().getRealClass()
+				.getField("driver").get(result.getInstance());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		String filePath = null;
+		try {
+			filePath = captureScreenshot(result.getMethod().getMethodName(), driver);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		if (filePath != null) {
+			extentTest.get().addScreenCaptureFromPath(filePath, result.getMethod().getMethodName());
+		}
 	}
 
 	@Override
 	public void onTestSkipped(ITestResult result) {
-	
-		
+		extentTest.get().log(Status.SKIP, "Test Skipped");
 	}
 
 	@Override
@@ -90,8 +76,6 @@ public class Listeners extends BaseTest implements ITestListener{
 
 	@Override
 	public void onFinish(ITestContext context) {
-	 extent.flush();
+		extent.flush();
 	}
-
-	
 }

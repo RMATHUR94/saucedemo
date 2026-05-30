@@ -1,0 +1,48 @@
+# IDE and Editor specific files
+.classpath
+.project
+.settings/
+.idea/
+*.iml
+*.iws
+*.ipr
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Eclipse
+.metadata/
+bin/
+.gradle/
+
+# Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+.m2/
+
+# Test outputs and reports
+test-output/
+*.log
+logs/
+
+# Local environment files
+local.properties
+*.env
+.env.local
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+*.swo
+*~
+
+# System files
+.DS_Store
+Thumbs.db
+

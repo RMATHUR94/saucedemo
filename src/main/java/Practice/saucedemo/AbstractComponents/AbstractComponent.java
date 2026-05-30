@@ -2,7 +2,6 @@ package Practice.saucedemo.AbstractComponents;
 
 import java.time.Duration;
 import java.util.List;
-import java.util.function.Predicate;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -12,77 +11,96 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import Pracetice.saucedemo.pageobjects.cartPage;
+import Practice.saucedemo.pageobjects.CartPage;
 
+/**
+ * Abstract Component - Base class for all Page Object Models
+ * Contains common methods and web elements used across multiple pages
+ */
 public class AbstractComponent {
 
-	WebDriver driver;
+	protected WebDriver driver;
+	protected static final int WAIT_TIMEOUT = 10;
 
 	public AbstractComponent(WebDriver driver) {
-
 		this.driver = driver;
 	}
 
-	//PageFactory Method
+	
+	// ==================== Common Web Elements ====================
+	
 	@FindBy(xpath = "//a[@class='shopping_cart_link']")
-	WebElement cartHeader;
+	protected WebElement shoppingCartLink;
 	
 	@FindBy(css = "div[class='inventory_item_name']")
-	List<WebElement> cartlists;
+	protected List<WebElement> productList;
 	
-	By curtheader = By.xpath("//div[@class='header_label']");
+	private final By headerLabel = By.xpath("//div[@class='header_label']");
 
 	
+	// ==================== Common Waits & Utilities ====================
 	
- 
-	
-	
-	public void waitForElementToAppear(By findBy) {
-
-		// wating for the element to be located
-
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-		wait.until(ExpectedConditions.visibilityOfElementLocated(findBy));
-
+	/**
+	 * Wait for element to be visible on the page
+	 * 
+	 * @param locator - By locator of the element
+	 */
+	public void waitForElementToAppear(By locator) {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIMEOUT));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
 	}
 	
-	public void waitForWebElementToAppearBydriver(WebElement findBy) {
-
-		// wating for the element to be located
-
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-		wait.until(ExpectedConditions.visibilityOf(findBy));
+	/**
+	 * Wait for WebElement to be visible
+	 * 
+	 * @param element - WebElement to wait for
+	 */
+	public void waitForWebElementToAppear(WebElement element) {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIMEOUT));
+		wait.until(ExpectedConditions.visibilityOf(element));
 	}
 	
-
-	public void elementToBeclickable(By findby)
-	{
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-		wait.until(ExpectedConditions.elementToBeClickable(findby)).click();
+	/**
+	 * Wait for element to be clickable and then click it
+	 * 
+	 * @param locator - By locator of the element
+	 */
+	public void waitAndClick(By locator) {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIMEOUT));
+		wait.until(ExpectedConditions.elementToBeClickable(locator)).click();
 	}
 
-	public void scrollByPixels(WebDriver driver, int x, int y) {
-		JavascriptExecutor jse = (JavascriptExecutor) driver;
-		jse.executeScript("window.scrollBy(arguments[0], arguments[1]);", x, y);
+	/**
+	 * Scroll page by given pixels
+	 * 
+	 * @param xPixels - Horizontal scroll amount
+	 * @param yPixels - Vertical scroll amount
+	 */
+	public void scrollByPixels(WebDriver driver, int xPixels, int yPixels) {
+		JavascriptExecutor executor = (JavascriptExecutor) driver;
+		executor.executeScript("window.scrollBy(arguments[0], arguments[1]);", xPixels, yPixels);
 	}
 	
-	public cartPage goToCartPage()
-	{
-		scrollByPixels(driver,0,-400);
-		elementToBeclickable(curtheader);
-		cartHeader.click();
-		cartPage cartpage = new cartPage(driver);
-		return cartpage;
+	/**
+	 * Navigate to shopping cart page
+	 * 
+	 * @return CartPage object
+	 */
+	public CartPage goToCartPage() {
+		scrollByPixels(driver, 0, -400);
+		waitAndClick(headerLabel);
+		shoppingCartLink.click();
+		return new CartPage(driver);
 	}
 	
-	public Boolean verifyProductDisplay(final String productName)
-	{
-		Boolean match = cartlists.stream().anyMatch(new Predicate<WebElement>() {
-			@Override
-			public boolean test(WebElement product) {
-				return product.getText().equalsIgnoreCase(productName);
-			}
-		});
-		return match;
+	/**
+	 * Verify if a product is displayed on the page
+	 * 
+	 * @param productName - Name of the product to verify
+	 * @return true if product is found, false otherwise
+	 */
+	public boolean verifyProductDisplay(final String productName) {
+		return productList.stream()
+			.anyMatch(product -> product.getText().equalsIgnoreCase(productName));
 	}
 }

@@ -5,42 +5,52 @@ import java.io.IOException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import com.sun.net.httpserver.Authenticator.Retry;
-
-import Pracetice.saucedemo.pageobjects.CheckoutPage;
-import Pracetice.saucedemo.pageobjects.ConfirmationPage;
-import Pracetice.saucedemo.pageobjects.LandingPage;
-import Pracetice.saucedemo.pageobjects.ProductCatalogue;
-import Pracetice.saucedemo.pageobjects.cartPage;
+import Practice.saucedemo.pageobjects.CartPage;
+import Practice.saucedemo.pageobjects.LandingPage;
+import Practice.saucedemo.pageobjects.ProductCatalogue;
 import Practice.saucedemo.testComponents.BaseTest;
 import Practice.saucedemo.testComponents.retry;
 
-@Test(retryAnalyzer=retry.class)
+/**
+ * ErrorValidation Test Class
+ * Tests error handling and validation scenarios
+ * Includes retry mechanism for flaky tests
+ */
+@Test(retryAnalyzer = retry.class)
 public class ErrorValidation extends BaseTest {
 
-	//Under this test we added test for retry test for flasky test
-	public void StandaloneTest() throws IOException {
-
-//		Assert.assertEquals("Epic sadface: Username and password do not match any user in this service", landingpage.getErrorMsg());
-
-		landingpage.loginApplication("xyz_wrongusername", "12345");
-		Assert.assertEquals(" Username and password do not match any user in this service", landingpage.getErrorMsg());
-
+	/**
+	 * Test - Invalid login credentials validation
+	 * Verifies error message is displayed for wrong credentials
+	 *
+	 * @throws IOException if operations fail
+	 */
+	public void invalidLoginCredentialsTest() throws IOException {
+		landingPage.loginApplication("xyz_wrongusername", "12345");
+		String errorMessage = landingPage.getErrorMsg();
+		Assert.assertEquals(errorMessage, " Username and password do not match any user in this service");
 	}
 	
-	public void Productvalidation() throws IOException {
-
+	/**
+	 * Test - Product validation in cart
+	 * Adds product to cart and verifies it appears in cart
+	 *
+	 * @throws IOException if operations fail
+	 */
+	public void productValidationTest() throws IOException {
+		final String productName = "Sauce Labs Backpack";
 		
-        final String productName = "Sauce Labs Backpack";
-		//LandingPage landingpage = launchApplication();
-		ProductCatalogue Productcatalogue = landingpage.loginApplication("standard_user","secret_sauce");
-		//ProductCatalogue Productcatalogue = new ProductCatalogue(driver);
-		Productcatalogue.addProductTocart();
-//		cartPage cartpage = new cartPage(driver);
-		cartPage cartpage = Productcatalogue.goToCartPage();
-		Boolean match = cartpage.verifyProductDisplay(productName);
-		Assert.assertTrue(match);
-
+		// Login with valid credentials
+		ProductCatalogue productCatalogue = landingPage.loginApplication("standard_user", "secret_sauce");
+		
+		// Add products to cart
+		productCatalogue.addProductToCart();
+		
+		// Navigate to cart
+		CartPage cartPage = productCatalogue.goToCartPage();
+		
+		// Verify product is in cart
+		boolean isProductPresent = cartPage.verifyProductDisplay(productName);
+		Assert.assertTrue(isProductPresent, "Product should be present in cart");
 	}
-
 }

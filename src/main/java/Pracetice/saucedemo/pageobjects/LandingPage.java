@@ -61,7 +61,7 @@ public class LandingPage extends AbstractComponent {
 	
 	public String getErrorMsg()
 	{
-		waitForWebElementToAppearBydriver(errorMsg);
+		waitForWebElementToAppear(errorMsg);
 		String errormsg = errorMsg.getText();
 		return errormsg;
 		
