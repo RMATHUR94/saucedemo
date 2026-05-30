@@ -6,6 +6,9 @@
      <include name="Errorhandling"></include>
 </run>
 </groups>
+  <listeners>
+    <listener class-name="Practice.saucedemo.testComponents.Listeners" />
+  </listeners>
   <test thread-count="5" name="Error validation Test">
     <classes>
       <class name="Practice.saucedemo.tests.ErrorValidation"/>
